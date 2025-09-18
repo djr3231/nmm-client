@@ -1,6 +1,5 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardAction, CardFooter } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
 const meetings = [
@@ -63,21 +62,14 @@ const getStatusText = (status: string) => {
 export default function Home() {
   return (
     <div>
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold text-custom-100">פגישות פעילות</h2>
-        <Link href="/meetings/create">
-          <Button className="cursor-pointer">
-            + צור פגישה חדשה
-          </Button>
-        </Link>
-      </div>
+      <h2 className="text-2xl font-bold text-custom-100 mb-6">פגישות פעילות</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {meetings.map((meeting) => (
           <Card key={meeting.id} className="hover:shadow-lg transition-shadow">
             <CardHeader>
               <CardTitle className="text-lg">{meeting.title}</CardTitle>
-              <CardAction>
-                <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(meeting.status)}`}>
+              <CardAction >
+                <span className={`px-2 py-1 rounded-full text-xs font-medium  ${getStatusColor(meeting.status)}`}>
                   {getStatusText(meeting.status)}
                 </span>
               </CardAction>
@@ -101,10 +93,10 @@ export default function Home() {
                 </div>
               </div>
             </CardContent>
-            <CardFooter className="justify-end">
+            <CardFooter>
               <Link 
                 href={`/meetings/${meeting.id}`}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground py-2 px-4 rounded-md transition-colors"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md text-center transition-colors"
               >
                 צפה בפרטים
               </Link>
