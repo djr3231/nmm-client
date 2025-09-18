@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Header from "@/components/Header";
 
+import { Providers } from "./providers";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -24,11 +26,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
   return (
-    <html lang="en">
+    <html lang="he-IL">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Providers>
         <div className="min-h-screen bg-base-200 flex">
           <Navbar />
           <div className="flex-1 flex flex-col">
@@ -38,6 +43,7 @@ export default function RootLayout({
             </main>
           </div>
         </div>
+        </Providers>
       </body>
     </html>
   );
